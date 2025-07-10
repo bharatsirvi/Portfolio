@@ -246,7 +246,6 @@ export const skills = {
     "GitHub",
     "VS Code",
     "Visual Studio",
-    "PyCharm",
     "IntelliJ",
     "Canva",
     "Android Studio",

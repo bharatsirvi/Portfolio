@@ -41,6 +41,15 @@
   }
 }
 
+/* Custom Size Classes */
+.w-88 {
+  width: 22rem; /* 352px */
+}
+
+.h-88 {
+  height: 22rem; /* 352px */
+}
+
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
 }

@@ -1,6 +1,5 @@
 import { X, Menu, Code2, Download } from "lucide-react";
 import Photo from "../../assets/images/bharat-kumar.jpg";
-
 const Navbar = ({
   activeSection,
   setActiveSection,
@@ -68,9 +67,9 @@ const Navbar = ({
             {/* Download Resume Button */}
             <button
               onClick={() => {
-                // Create a temporary link to download the resume
+                // Direct download
                 const link = document.createElement("a");
-                link.href = "/resume.pdf"; // You'll need to add your resume PDF to the public folder
+                link.href = "/BHARAT_RESUME.pdf";
                 link.download = "Bharat_Kumar_Resume.pdf";
                 document.body.appendChild(link);
                 link.click();
@@ -89,8 +88,9 @@ const Navbar = ({
             {/* Mobile Resume Button */}
             <button
               onClick={() => {
+                // Direct download
                 const link = document.createElement("a");
-                link.href = "/resume.pdf";
+                link.href = "/bharat.pdf";
                 link.download = "Bharat_Kumar_Resume.pdf";
                 document.body.appendChild(link);
                 link.click();

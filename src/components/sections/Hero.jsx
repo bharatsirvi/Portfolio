@@ -55,7 +55,7 @@ const Hero = ({ scrollToSection }) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-28 lg:pt-0 pb-16 sm:pb-20 lg:pb-0"
     >
       <TechBackground variant="hero" isHero={true} />
 
@@ -68,29 +68,29 @@ const Hero = ({ scrollToSection }) => {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-6 lg:space-y-8">
             {/* Greeting */}
             <div className="space-y-2 animate-fadeInUp">
               <p className="text-lg text-purple-300 font-medium">
                 👋 Hello, I'm
               </p>
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent leading-tight">
                 Bharat Kumar
               </h1>
             </div>
 
             {/* Typing Animation */}
-            <div className="h-16 flex items-center justify-center lg:justify-start animate-fadeInUp delay-300">
-              <span className="text-2xl md:text-3xl text-gray-300 font-light">
+            <div className="h-12 sm:h-16 flex items-center justify-center lg:justify-start animate-fadeInUp delay-300">
+              <span className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light">
                 {typedText}
                 <span className="animate-pulse text-purple-400">|</span>
               </span>
             </div>
 
             {/* Description */}
-            <p className="text-lg text-gray-400 max-w-2xl leading-relaxed animate-fadeInUp delay-500">
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed animate-fadeInUp delay-500">
               I love building web applications and solving problems with code. I
               enjoy creating user-friendly interfaces and working with modern
               technologies like React, Node.js, and databases. Always excited to
@@ -98,20 +98,20 @@ const Hero = ({ scrollToSection }) => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fadeInUp delay-700">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fadeInUp delay-700">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-purple-500/25 flex items-center justify-center space-x-2"
+                className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-purple-500/25 flex items-center justify-center space-x-2"
               >
                 <span>View My Work</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group px-8 py-4 border-2 border-purple-400/50 bg-purple-400/10 backdrop-blur-sm text-purple-300 rounded-2xl font-medium hover:bg-purple-400 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="group px-6 sm:px-8 py-3 sm:py-4 border-2 border-purple-400/50 bg-purple-400/10 backdrop-blur-sm text-purple-300 rounded-2xl font-medium hover:bg-purple-400 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <span>Get In Touch</span>
-                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Mail className="w-4 sm:w-5 h-4 sm:h-5 group-hover:scale-110 transition-transform" />
               </button>
             </div>
 
@@ -145,7 +145,7 @@ const Hero = ({ scrollToSection }) => {
               {/* Main Photo Container */}
               <div className="relative">
                 {/* Sophisticated Border Ring */}
-                <div className="w-96 h-96 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 p-1 group-hover:scale-[1.02] transition-all duration-500 shadow-2xl shadow-purple-500/25">
+                <div className="w-80 h-80 sm:w-88 sm:h-88 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 p-1 group-hover:scale-[1.02] transition-all duration-500 shadow-2xl shadow-purple-500/25">
                   {/* Inner Container */}
                   <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-800 rounded-full p-2 relative overflow-hidden">
                     {/* Image */}
