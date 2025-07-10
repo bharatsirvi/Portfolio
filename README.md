@@ -2,16 +2,16 @@
 
 Welcome to my professional portfolio! I'm a Full Stack Developer passionate about creating beautiful, functional, and user-friendly web applications.
 
-![Portfolio Preview](public/bharat-logo.png)
+![Portfolio Preview](#link)
 
 ## 💫 About Me
 
 I'm a Computer Science Engineering graduate from Rajasthan Technical University with a CGPA of 9.15. My expertise includes:
 
-- � Full Stack Development with React, Node.js
-- 📱 Mobile Development with Flutter
-- 🔍 Strong DSA skills with 700+ problems solved
-- 🎯 Focus on creating impactful user experiences
+- Full Stack Development with React, Node.js
+- Mobile Development with Flutter
+- Strong DSA skills with 700+ problems solved
+- Focus on creating impactful user experiences
 
 ## ✨ Portfolio Highlights
 
@@ -95,7 +95,22 @@ portfolio/
 - Micro-interactions
 - Smooth scrolling
 
-## 📞 Contact
+**Features:**
+- Quick and secure event ticket booking
+- Real-time seat selection
+- Digital ticket management
+- Event discovery and recommendations
+- Secure payment processing
+
+To install the Vaultix app:
+1. Click the download badge above
+2. Open the downloaded APK on your Android device
+3. Follow the installation prompts
+4. Start exploring and booking events!
+
+> Note: You may need to enable "Install from Unknown Sources" in your Android settings to install the APK.
+
+## �📞 Contact
 
 Bharat Kumar
 - 📧 Email: [bharatsirvi855@gmail.com](mailto:bharatsirvi855@gmail.com)

@@ -73,6 +73,11 @@ import vaultix23 from "../assets/images/vaultix-23.jpg";
 import vaultix24 from "../assets/images/vaultix-24.jpg";
 import vaultix25 from "../assets/images/vaultix-25.jpg";
 
+// Project Logos
+import devtinderLogo from "../assets/images/devtinderLogo.png";
+import vaultixLogo from "../assets/images/vaultixLogo.png";
+import netflixgptLogo from "../assets/images/netfilxgptLogo.png";
+
 export const projects = [
   {
     id: 1,
@@ -138,7 +143,7 @@ export const projects = [
       devtinderMobile14,
     ],
     gradient: "from-purple-600 to-pink-600",
-    icon: "💬",
+    icon: devtinderLogo,
   },
   {
     id: 2,
@@ -154,7 +159,8 @@ export const projects = [
       "Search and copy functionality",
       "Delete confirmation system",
     ],
-    link: "#",
+    link: "https://drive.google.com/uc?export=download&id=1qyVG9fA7CimKN_XbsCjMoEeDUioln5WK&confirm=t",
+
     github: "https://github.com/bharatsirvi/Password-Manager",
     images: [
       vaultix1,
@@ -184,7 +190,7 @@ export const projects = [
       vaultix25,
     ],
     gradient: "from-blue-600 to-cyan-600",
-    icon: "🔐",
+    icon: vaultixLogo,
   },
   {
     id: 3,
@@ -220,7 +226,7 @@ export const projects = [
       netflixgpt8,
     ],
     gradient: "from-red-600 to-orange-600",
-    icon: "🎬",
+    icon: netflixgptLogo,
   },
 ];
 
@@ -246,6 +252,8 @@ export const skills = {
     "Android Studio",
   ],
   libraries: ["Material UI", "Daisy UI", "Bootstrap"],
+  coursework: ["Object Oriented Programming", "DBMS", "Operating System"],
+  hobbies: ["Design and Editing", "Chess"],
 };
 
 export const achievements = [
@@ -255,6 +263,7 @@ export const achievements = [
       "Solved on LeetCode, CodeChef, Coding Ninja and other platforms",
     icon: <Code className="w-6 h-6" />,
     color: "from-green-400 to-emerald-600",
+    link: "https://leetcode.com/bharatsirvi855",
   },
   {
     title: "Second Rank in College",
@@ -273,3 +282,4 @@ export const achievements = [
 export const githubLink = "https://github.com/bharatsirvi";
 export const linkedInLink =
   "https://www.linkedin.com/in/bharat-kumar-b45307262";
+export const leetcodeLink = "https://leetcode.com/bharatsirvi855";
