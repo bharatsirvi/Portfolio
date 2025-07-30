@@ -310,25 +310,23 @@ const StandardGallery = ({ project, showAllImages, setShowAllImages }) => (
         </div>
       ))}
     </div>
-    
+
     {/* Show More Button for Standard Gallery */}
-    {project.images && 
-     project.images.length > (project.name === "Vaultix" ? 9 : 5) && (
-      <div className="mt-6 text-center">
-        <ShowMoreButton
-          onClick={() => setShowAllImages(!showAllImages)}
-          isShowingAll={showAllImages}
-          count={
-            project.images.length - (project.name === "Vaultix" ? 9 : 5)
-          }
-          variant={
-            project.name === "Vaultix" 
-              ? "from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700"
-              : "from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700"
-          }
-        />
-      </div>
-    )}
+    {project.images &&
+      project.images.length > (project.name === "Vaultix" ? 9 : 5) && (
+        <div className="mt-6 text-center">
+          <ShowMoreButton
+            onClick={() => setShowAllImages(!showAllImages)}
+            isShowingAll={showAllImages}
+            count={project.images.length - (project.name === "Vaultix" ? 9 : 5)}
+            variant={
+              project.name === "Vaultix"
+                ? "from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700"
+                : "from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700"
+            }
+          />
+        </div>
+      )}
   </div>
 );
 
