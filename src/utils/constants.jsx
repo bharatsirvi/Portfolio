@@ -257,7 +257,7 @@ export const skills = {
 
 export const achievements = [
   {
-    title: "700+ Coding Problems Solved",
+    title: "1000+ Coding Problems Solved",
     description:
       "Solved on LeetCode, CodeChef, Coding Ninja and other platforms",
     icon: <Code className="w-6 h-6" />,
