@@ -40,19 +40,20 @@ const Navbar = ({
               {[
                 "home",
                 "about",
+                "experience",
                 "projects",
                 "skills",
                 "achievements",
+                "certifications",
                 "contact",
               ].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                    activeSection === item
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
-                      : "text-gray-300 hover:text-white hover:bg-slate-700/50"
-                  }`}
+                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${activeSection === item
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                    : "text-gray-300 hover:text-white hover:bg-slate-700/50"
+                    }`}
                 >
                   <span className="relative z-10">
                     {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -69,7 +70,7 @@ const Navbar = ({
               onClick={() => {
                 // Direct download
                 const link = document.createElement("a");
-                link.href = "/BHARAT_RESUME.pdf";
+                link.href = "/Bharat_Kumar_CV.pdf";
                 link.download = "Bharat_Kumar_Resume.pdf";
                 document.body.appendChild(link);
                 link.click();
@@ -90,7 +91,7 @@ const Navbar = ({
               onClick={() => {
                 // Direct download
                 const link = document.createElement("a");
-                link.href = "/bharat.pdf";
+                link.href = "/Bharat_Kumar_CV.pdf";
                 link.download = "Bharat_Kumar_Resume.pdf";
                 document.body.appendChild(link);
                 link.click();
@@ -123,9 +124,11 @@ const Navbar = ({
               {[
                 "home",
                 "about",
+                "experience",
                 "projects",
                 "skills",
                 "achievements",
+                "certifications",
                 "contact",
               ].map((item) => (
                 <button
@@ -134,11 +137,10 @@ const Navbar = ({
                     scrollToSection(item);
                     setIsMenuOpen(false);
                   }}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
-                    activeSection === item
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
-                      : "text-gray-300 hover:text-white hover:bg-slate-800/50"
-                  }`}
+                  className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${activeSection === item
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                    : "text-gray-300 hover:text-white hover:bg-slate-800/50"
+                    }`}
                 >
                   <span className="flex items-center justify-between">
                     {item.charAt(0).toUpperCase() + item.slice(1)}

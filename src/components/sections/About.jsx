@@ -12,16 +12,18 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed">
-              I have completed my B.Tech in Computer Science and Engineering
-              from Rajasthan Technical University with a CGPA of 9.15. I am
-              strong in Data Structures and Algorithms using Java, having solved
-              over 700 coding problems across various platforms.
+              I'm a B.Tech Computer Science and Engineering graduate from
+              Rajasthan Technical University with a CGPA of 9.06. I'm passionate
+              about building scalable web applications and solving complex
+              problems — having solved over 1000+ coding problems across
+              LeetCode, CodeChef, and other platforms (Knight Level on LeetCode).
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm skilled in full-stack development using React, JavaScript, and
-              Node.js, and have hands-on experience in mobile development with
-              Flutter. I enjoy building user-friendly applications that solve
-              real-world problems.
+              I specialize in full-stack development using React, Node.js, and
+              Python, with hands-on experience in Generative AI — including LLMs,
+              RAG, MCP, and AI Agents. Currently interning at{" "}
+              <span className="text-purple-400 font-semibold">Zemoso Technologies</span>,
+              building AI-powered interview platforms using Atomic Design and GenAI.
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <div className="flex items-center space-x-2 bg-purple-600/20 px-4 py-2 rounded-full">
@@ -51,7 +53,7 @@ const About = () => {
                   institution="Rajasthan Technical University"
                   location="Kota, Rajasthan"
                   year="2021 - 2025"
-                  score="CGPA: 9.15"
+                  score="CGPA: 9.06"
                   borderColor="purple"
                 />
                 <EducationItem
@@ -128,11 +130,9 @@ const EducationItem = ({
 
   const getScorePercentage = () => {
     if (score.includes("CGPA")) {
-      // Convert CGPA to percentage (9.15 CGPA = 91.5%)
       const cgpa = parseFloat(score.replace("CGPA: ", ""));
-      return cgpa * 10; // Remove Math.round() to show exact percentage
+      return Math.round(cgpa * 10 * 100) / 100; // e.g. 9.06 → 90.6
     } else {
-      // Extract percentage
       return parseFloat(score.replace("%", ""));
     }
   };

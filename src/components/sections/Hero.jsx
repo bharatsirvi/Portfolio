@@ -22,9 +22,9 @@ const Hero = ({ scrollToSection }) => {
   const [typedText, setTypedText] = useState("");
   const roles = [
     "Full Stack Developer",
-    "Problem Solver",
+    "GenAI Developer",
     "DSA Enthusiast",
-    "Code Artist",
+    "Problem Solver",
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -91,10 +91,10 @@ const Hero = ({ scrollToSection }) => {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed animate-fadeInUp delay-500">
-              I love building web applications and solving problems with code. I
-              enjoy creating user-friendly interfaces and working with modern
-              technologies like React, Node.js, and databases. Always excited to
-              learn new things.
+              Full Stack Developer & GenAI enthusiast currently interning at{" "}
+              <span className="text-purple-400 font-medium">Zemoso Technologies</span>.
+              I build scalable web apps with React & Node.js, and explore AI systems
+              with LLMs, RAG, and MCP. Knight on LeetCode with 1000+ problems solved.
             </p>
 
             {/* CTA Buttons */}

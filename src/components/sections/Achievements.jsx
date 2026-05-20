@@ -13,7 +13,7 @@ const Achievements = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           Achievements
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {achievements.map((achievement, index) => (
             <AchievementCard key={index} achievement={achievement} />
           ))}

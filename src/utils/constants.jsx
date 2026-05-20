@@ -1,4 +1,4 @@
-import { Code, GraduationCap, Trophy } from "lucide-react";
+import { Code, GraduationCap, Trophy, Award, Star } from "lucide-react";
 import netflixgpt1 from "../assets/images/netfilxgpt-1.png";
 import netflixgpt2 from "../assets/images/netfilxgpt-2.png";
 import netflixgpt3 from "../assets/images/netfilxgpt-3.png";
@@ -232,49 +232,68 @@ export const projects = [
 
 export const skills = {
   frontend: [
-    "JavaScript",
     "React.js",
-    "Redux",
-    "Tailwind CSS",
+    "JavaScript",
     "HTML",
     "CSS",
-    "Flutter",
+    "Tailwind CSS",
+    "Redux Toolkit",
+    "MUI",
   ],
-  backend: ["Node.js", "Express", "MongoDB", "Firebase"],
-  languages: ["Java", "JavaScript", "C/C++", "Dart"],
+  backend: ["Node.js", "Express.js", "FastAPI", "MongoDB", "Firebase"],
+  languages: ["Java", "JavaScript", "Python", "Dart"],
+  aiGenAI: [
+    "LLMs",
+    "RAG",
+    "MCP",
+    "Tool Calling",
+    "Prompt Engineering",
+    "Vector DB",
+    "Embeddings",
+    "Langchain",
+    "AI Agents",
+  ],
+  devOps: ["Docker", "CI/CD", "Git", "GitHub"],
   tools: [
-    "GitHub",
     "VS Code",
-    "Visual Studio",
-    "IntelliJ",
-    "Canva",
+    "Cursor",
+    "Claude Code",
+    "IntelliJ IDEA",
     "Android Studio",
+    "Postman",
   ],
-  libraries: ["Material UI", "Daisy UI", "Bootstrap"],
-  coursework: ["Object Oriented Programming", "DBMS", "Operating System"],
-  hobbies: ["Design and Editing", "Chess"],
+  libraries: ["Redux Toolkit", "Bootstrap", "DaisyUI", "Material UI"],
+  coursework: ["Data Structures & Algorithms", "OOPs", "DBMS", "Operating System"],
 };
 
 export const achievements = [
   {
     title: "1000+ Coding Problems Solved",
     description:
-      "Solved on LeetCode, CodeChef, Coding Ninja and other platforms",
+      "Solved on LeetCode, CodeChef, Coding Ninja and other competitive platforms",
     icon: <Code className="w-6 h-6" />,
     color: "from-green-400 to-emerald-600",
     link: "https://leetcode.com/bharatsirvi855",
   },
   {
-    title: "Second Rank in College",
-    description: "College level coding competition",
-    icon: <Trophy className="w-6 h-6" />,
+    title: "Knight Level — LeetCode",
+    description: "Achieved Knight badge on LeetCode through consistent competitive programming",
+    icon: <Star className="w-6 h-6" />,
     color: "from-yellow-400 to-orange-600",
+    link: "https://leetcode.com/bharatsirvi855",
   },
   {
-    title: "9.15 CGPA",
-    description: "B.Tech Computer Science Engineering",
+    title: "9.06 CGPA",
+    description: "B.Tech Computer Science Engineering — Rajasthan Technical University",
     icon: <GraduationCap className="w-6 h-6" />,
     color: "from-purple-400 to-pink-600",
+  },
+  {
+    title: "Anthropic AI Certified",
+    description:
+      "Claude 101, Claude with Anthropic API, Claude Code in Action, MCP Advanced Topics, AI Fluency & more",
+    icon: <Award className="w-6 h-6" />,
+    color: "from-blue-400 to-cyan-600",
   },
 ];
 
@@ -282,3 +301,43 @@ export const githubLink = "https://github.com/bharatsirvi";
 export const linkedInLink =
   "https://www.linkedin.com/in/bharat-kumar-b45307262";
 export const leetcodeLink = "https://leetcode.com/bharatsirvi855";
+
+export const experience = [
+  {
+    id: 1,
+    role: "Dev Intern",
+    company: "Zemoso Technologies",
+    duration: "Nov 2025 – Present",
+    type: "Internship",
+    location: "Remote",
+    gradient: "from-purple-600 to-pink-600",
+    highlights: [
+      "Built reusable and responsive **frontend components** using **React.js**, **JavaScript**, **HTML**, **CSS**, and **MUI**.",
+      "Implemented **Atomic Design principles** to develop scalable and maintainable UI architecture.",
+      "Worked on a **Generative AI-based interview platform** designed to conduct real-time interviews.",
+      "Integrated **AI features** for interview question generation, candidate interaction, and response evaluation.",
+      "Used **Git**, **Python**, and **GenAI tools** during development and collaboration workflows.",
+    ],
+    technologies: ["React.js", "JavaScript", "MUI", "Python", "GenAI", "Git"],
+  },
+];
+
+export const certifications = [
+  {
+    id: 1,
+    title: "Anthropic AI Certifications",
+    issuer: "Anthropic",
+    gradient: "from-orange-500 to-red-600",
+    courses: [
+      { name: "Claude 101", link: "https://verify.skilljar.com/c/etqj5yacbymh" },
+      { name: "Claude with the Anthropic API", link: "https://verify.skilljar.com/c/6xsbzwg22yus" },
+      { name: "Claude Code in Action", link: "https://verify.skilljar.com/c/7xbc28ctrakq" },
+      { name: "Introduction to Model Context Protocol (MCP)", link: "https://verify.skilljar.com/c/m7qeok3hc5rb" },
+      { name: "MCP Advanced Topics", link: "https://verify.skilljar.com/c/kcjswfu75kmb" },
+      { name: "Introduction to Agent Skills", link: "https://verify.skilljar.com/c/ejpmy7i6j482" },
+      { name: "Claude with Amazon Bedrock", link: "https://verify.skilljar.com/c/oao6di9dqoaj" },
+      { name: "Claude with Google Vertex AI", link: "https://verify.skilljar.com/c/x7ex362y4hax" },
+      { name: "AI Fluency: Framework & Foundations", link: "https://verify.skilljar.com/c/nfr9z5dz2wue" },
+    ],
+  },
+];
