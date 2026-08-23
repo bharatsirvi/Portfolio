@@ -6,7 +6,7 @@ Welcome to my professional portfolio! I'm a Full Stack Developer passionate abou
 
 ## 💫 About Me
 
-I'm a Computer Science Engineering graduate from Rajasthan Technical University with a CGPA of 9.15. My expertise includes:
+I'm a Computer Science Engineering graduate from Rajasthan Technical University with a CGPA of 9.11. My expertise includes:
 
 - Full Stack Development with React, Node.js
 - Mobile Development with Flutter

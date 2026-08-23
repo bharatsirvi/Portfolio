@@ -91,7 +91,8 @@ const Hero = ({ scrollToSection }) => {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-gray-400 max-w-2xl leading-relaxed animate-fadeInUp delay-500">
-              Full Stack Developer & GenAI enthusiast currently interning at{" "}
+              Full Stack Developer & GenAI enthusiast working as a{" "}
+              <span className="text-purple-400 font-medium">Junior Developer</span> at{" "}
               <span className="text-purple-400 font-medium">Zemoso Technologies</span>.
               I build scalable web apps with React & Node.js, and explore AI systems
               with LLMs, RAG, and MCP. Knight on LeetCode with 1000+ problems solved.

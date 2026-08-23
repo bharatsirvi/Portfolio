@@ -13,7 +13,7 @@ const About = () => {
           <div className="space-y-6">
             <p className="text-lg text-gray-300 leading-relaxed">
               I'm a B.Tech Computer Science and Engineering graduate from
-              Rajasthan Technical University with a CGPA of 9.06. I'm passionate
+              Rajasthan Technical University with a CGPA of 9.11. I'm passionate
               about building scalable web applications and solving complex
               problems — having solved over 1000+ coding problems across
               LeetCode, CodeChef, and other platforms (Knight Level on LeetCode).
@@ -21,7 +21,8 @@ const About = () => {
             <p className="text-lg text-gray-300 leading-relaxed">
               I specialize in full-stack development using React, Node.js, and
               Python, with hands-on experience in Generative AI — including LLMs,
-              RAG, MCP, and AI Agents. Currently interning at{" "}
+              RAG, MCP, and AI Agents. Currently working as a{" "}
+              <span className="text-purple-400 font-semibold">Junior Developer</span> at{" "}
               <span className="text-purple-400 font-semibold">Zemoso Technologies</span>,
               building AI-powered interview platforms using Atomic Design and GenAI.
             </p>
@@ -53,7 +54,7 @@ const About = () => {
                   institution="Rajasthan Technical University"
                   location="Kota, Rajasthan"
                   year="2021 - 2025"
-                  score="CGPA: 9.06"
+                  score="CGPA: 9.11"
                   borderColor="purple"
                 />
                 <EducationItem

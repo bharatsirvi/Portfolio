@@ -1,8 +1,170 @@
-import { Github, ExternalLink, Download } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Github, ExternalLink, Download, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "../../utils/constants";
 import TechBackground from "../common/TechBackground.jsx";
 
 const Projects = ({ setSelectedProject }) => {
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+  const sliderRef = useRef(null);
+
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const lastX = useRef(0);
+  const scrollLeft = useRef(0);
+  const dragDistance = useRef(0);
+  const velocity = useRef(0);
+  const animationFrameId = useRef(null);
+  const momentumId = useRef(null);
+
+  const showSlider = projects.length > 3;
+
+  // Cleanup animations on unmount
+  useEffect(() => {
+    return () => {
+      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+      if (momentumId.current) cancelAnimationFrame(momentumId.current);
+    };
+  }, []);
+
+  const updateArrowVisibility = () => {
+    if (sliderRef.current) {
+      const { scrollLeft: sLeft, scrollWidth, clientWidth } = sliderRef.current;
+      setShowLeftArrow(sLeft > 2);
+      setShowRightArrow(sLeft < scrollWidth - clientWidth - 2);
+    }
+  };
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (slider && showSlider) {
+      slider.addEventListener("scroll", updateArrowVisibility);
+      updateArrowVisibility();
+    }
+    return () => {
+      if (slider) slider.removeEventListener("scroll", updateArrowVisibility);
+    };
+  }, [showSlider, projects.length]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      updateArrowVisibility();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      if (momentumId.current) cancelAnimationFrame(momentumId.current);
+      const containerWidth = sliderRef.current.clientWidth;
+      let visibleCount = 3;
+      if (window.innerWidth < 768) visibleCount = 1;
+      else if (window.innerWidth < 1280) visibleCount = 2;
+
+      const scrollAmount = containerWidth / visibleCount;
+      sliderRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const handleNext = () => {
+    if (sliderRef.current) {
+      if (momentumId.current) cancelAnimationFrame(momentumId.current);
+      const containerWidth = sliderRef.current.clientWidth;
+      let visibleCount = 3;
+      if (window.innerWidth < 768) visibleCount = 1;
+      else if (window.innerWidth < 1280) visibleCount = 2;
+
+      const scrollAmount = containerWidth / visibleCount;
+      sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    if (!sliderRef.current) return;
+    isDown.current = true;
+    dragDistance.current = 0;
+    startX.current = e.pageX - sliderRef.current.offsetLeft;
+    lastX.current = e.pageX;
+    scrollLeft.current = sliderRef.current.scrollLeft;
+    velocity.current = 0;
+
+    if (momentumId.current) cancelAnimationFrame(momentumId.current);
+    if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+
+    // Disable snapping and smooth behavior during active drag for fluid movement
+    sliderRef.current.style.scrollSnapType = "none";
+    sliderRef.current.style.scrollBehavior = "auto";
+  };
+
+  const handleMouseLeave = () => {
+    if (isDown.current) {
+      handleMouseUp();
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!isDown.current) return;
+    isDown.current = false;
+
+    if (sliderRef.current) {
+      let vel = velocity.current * 1.5;
+      const friction = 0.95;
+
+      const slide = () => {
+        if (Math.abs(vel) < 0.5 || isDown.current) {
+          if (sliderRef.current) {
+            sliderRef.current.style.scrollBehavior = "smooth";
+            sliderRef.current.style.scrollSnapType = "x mandatory";
+            sliderRef.current.scrollLeft = sliderRef.current.scrollLeft + 0.1;
+            updateArrowVisibility();
+          }
+          return;
+        }
+        if (sliderRef.current) {
+          sliderRef.current.scrollLeft -= vel;
+          updateArrowVisibility();
+        }
+        vel *= friction;
+        momentumId.current = requestAnimationFrame(slide);
+      };
+
+      if (momentumId.current) {
+        cancelAnimationFrame(momentumId.current);
+      }
+      momentumId.current = requestAnimationFrame(slide);
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown.current || !sliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.2;
+    dragDistance.current = Math.abs(x - startX.current);
+
+    velocity.current = e.pageX - lastX.current;
+    lastX.current = e.pageX;
+
+    if (animationFrameId.current) {
+      cancelAnimationFrame(animationFrameId.current);
+    }
+    animationFrameId.current = requestAnimationFrame(() => {
+      if (sliderRef.current) {
+        sliderRef.current.scrollLeft = scrollLeft.current - walk;
+        updateArrowVisibility();
+      }
+    });
+  };
+
+  const handleCardClick = (project, e) => {
+    if (dragDistance.current > 8) {
+      e.preventDefault();
+      return;
+    }
+    setSelectedProject(project);
+  };
+
   return (
     <section
       id="projects"
@@ -10,19 +172,67 @@ const Projects = ({ setSelectedProject }) => {
     >
       <TechBackground variant="projects" />
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           Featured Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onClick={() => setSelectedProject(project)}
-            />
-          ))}
-        </div>
+        {showSlider ? (
+          <div className="relative px-10 sm:px-16 md:px-24">
+            {/* Left Arrow */}
+            {showLeftArrow && (
+              <button
+                onClick={handlePrev}
+                className="absolute left-0 sm:left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 p-1 sm:p-2 cursor-pointer group"
+                aria-label="Previous Project"
+              >
+                <ChevronLeft className="w-8 h-8 md:w-12 md:h-12 text-gray-400 group-hover:text-purple-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all duration-300" />
+              </button>
+            )}
+
+            {/* Right Arrow */}
+            {showRightArrow && (
+              <button
+                onClick={handleNext}
+                className="absolute right-0 sm:right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 p-1 sm:p-2 cursor-pointer group animate-pulse hover:animate-none"
+                aria-label="Next Project"
+              >
+                <ChevronRight className="w-8 h-8 md:w-12 md:h-12 text-gray-400 group-hover:text-purple-400 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.8)] transition-all duration-300" />
+              </button>
+            )}
+
+            {/* Sliding Viewport */}
+            <div
+              ref={sliderRef}
+              className="overflow-x-auto flex snap-x snap-mandatory no-scrollbar select-none cursor-grab active:cursor-grabbing -mx-4 pb-4 scroll-smooth"
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+            >
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex-shrink-0 px-4 w-full md:w-1/2 xl:w-1/3 snap-start flex flex-col"
+                >
+                  <ProjectCard
+                    project={project}
+                    onClick={(e) => handleCardClick(project, e)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -94,16 +304,16 @@ const ProjectCard = ({ project, onClick }) => (
           {(project.images?.length || 0) +
             (project.desktopImages?.length || 0) >
             3 && (
-            <div className="text-center mt-2">
-              <span className="text-xs text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full">
-                +
-                {(project.images?.length || 0) +
-                  (project.desktopImages?.length || 0) -
-                  3}{" "}
-                more images
-              </span>
-            </div>
-          )}
+              <div className="text-center mt-2">
+                <span className="text-xs text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full">
+                  +
+                  {(project.images?.length || 0) +
+                    (project.desktopImages?.length || 0) -
+                    3}{" "}
+                  more images
+                </span>
+              </div>
+            )}
         </div>
       )}
 

@@ -77,10 +77,37 @@ import vaultix25 from "../assets/images/vaultix-25.jpg";
 import devtinderLogo from "../assets/images/devtinderLogo.png";
 import vaultixLogo from "../assets/images/vaultixLogo.png";
 import netflixgptLogo from "../assets/images/netfilxgptLogo.png";
+import promptrefinerLogo from "../assets/images/promptrefinerLogo.png";
 
 export const projects = [
   {
     id: 1,
+    name: "AI Prompt Refinement Tool",
+    subtitle: "Chrome Extension for LLM Prompt Refinement",
+    description:
+      "A Vite-powered Chrome Extension for real-time LLM prompt refinement and evaluation, integrating OpenAI, Gemini, and Groq APIs with a custom Shadow DOM UI.",
+    technologies: [
+      "JavaScript",
+      "Vite",
+      "Chrome Extension APIs",
+      "OpenAI API",
+      "Gemini API",
+      "Groq API",
+      "LLMs",
+    ],
+    features: [
+      "Integrates OpenAI, Google Gemini, and Groq APIs for real-time prompt optimization",
+      "Supports multi-generation comparison, prompt history tracking, and prompt recovery",
+      "Enables selection-based replacement to refine prompts directly in chatbot interfaces",
+      "Built with a framework-compatible DOM interaction layer and Shadow DOM UI for modern AI platform compatibility",
+    ],
+    github: "https://github.com/bharatsirvi/AI-Prompt-Refinement-and-Optimization-Tool",
+    link: "https://github.com/bharatsirvi/AI-Prompt-Refinement-and-Optimization-Tool",
+    gradient: "from-indigo-600 to-purple-600",
+    icon: promptrefinerLogo,
+  },
+  {
+    id: 2,
     name: "DevTinder",
     subtitle: "Developer Social App",
     description:
@@ -146,7 +173,7 @@ export const projects = [
     icon: devtinderLogo,
   },
   {
-    id: 2,
+    id: 3,
     name: "Vaultix",
     subtitle: "Password Manager App",
     description:
@@ -193,7 +220,7 @@ export const projects = [
     icon: vaultixLogo,
   },
   {
-    id: 3,
+    id: 4,
     name: "NetflixGPT",
     subtitle: "AI-Powered Netflix UI Clone",
     description:
@@ -237,10 +264,10 @@ export const skills = {
     "HTML",
     "CSS",
     "Tailwind CSS",
+    "Material UI (MUI)",
     "Redux Toolkit",
-    "MUI",
   ],
-  backend: ["Node.js", "Express.js", "FastAPI", "MongoDB", "Firebase"],
+  backend: ["Node.js", "Express.js", "FastAPI", "MongoDB", "Firebase", "REST APIs"],
   languages: ["Java", "JavaScript", "Python", "Dart"],
   aiGenAI: [
     "LLMs",
@@ -248,9 +275,9 @@ export const skills = {
     "MCP",
     "Tool Calling",
     "Prompt Engineering",
-    "Vector DB",
+    "Vector Databases",
     "Embeddings",
-    "Langchain",
+    "LangChain",
     "AI Agents",
   ],
   devOps: ["Docker", "CI/CD", "Git", "GitHub"],
@@ -262,8 +289,25 @@ export const skills = {
     "Android Studio",
     "Postman",
   ],
-  libraries: ["Redux Toolkit", "Bootstrap", "DaisyUI", "Material UI"],
-  coursework: ["Data Structures & Algorithms", "OOPs", "DBMS", "Operating System"],
+  libraries: [
+    "AT-SPI",
+    "UIA",
+    "rrweb",
+    "n8n",
+    "Heuristic Miner",
+    "Redux Toolkit",
+    "Material UI",
+    "Bootstrap",
+    "DaisyUI",
+  ],
+  coursework: [
+    "Data Structures & Algorithms",
+    "OOP",
+    "DBMS",
+    "Operating Systems",
+    "State Management",
+    "Authentication",
+  ],
 };
 
 export const achievements = [
@@ -283,7 +327,7 @@ export const achievements = [
     link: "https://leetcode.com/bharatsirvi855",
   },
   {
-    title: "9.06 CGPA",
+    title: "9.11 CGPA",
     description: "B.Tech Computer Science Engineering — Rajasthan Technical University",
     icon: <GraduationCap className="w-6 h-6" />,
     color: "from-purple-400 to-pink-600",
@@ -305,20 +349,19 @@ export const leetcodeLink = "https://leetcode.com/bharatsirvi855";
 export const experience = [
   {
     id: 1,
-    role: "Dev Intern",
+    role: "Junior Developer",
     company: "Zemoso Technologies",
     duration: "Nov 2025 – Present",
-    type: "Internship",
+    type: "Full-time",
     location: "Remote",
     gradient: "from-purple-600 to-pink-600",
     highlights: [
-      "Built reusable and responsive **frontend components** using **React.js**, **JavaScript**, **HTML**, **CSS**, and **MUI**.",
-      "Implemented **Atomic Design principles** to develop scalable and maintainable UI architecture.",
-      "Worked on a **Generative AI-based interview platform** designed to conduct real-time interviews.",
-      "Integrated **AI features** for interview question generation, candidate interaction, and response evaluation.",
-      "Used **Git**, **Python**, and **GenAI tools** during development and collaboration workflows.",
+      "Built reusable and responsive **frontend components** using **React.js**, **JavaScript**, **HTML**, **CSS**, and **Material UI (MUI)**, following **Atomic Design principles** for scalable UI development.",
+      "Contributed to a **Generative AI-powered interview platform** supporting real-time mock interviews, AI-generated questions, candidate interaction, and automated response evaluation.",
+      "Developed a **process discovery and workflow analysis solution** using application event data to reconstruct user workflows, identify process patterns and inefficiencies, and uncover potential automation opportunities.",
+      "Developed and integrated **AI-assisted workflows** using **Python**, **LLMs**, and **GenAI tools** for workflow analysis, experimentation, and process automation.",
     ],
-    technologies: ["React.js", "JavaScript", "MUI", "Python", "GenAI", "Git"],
+    technologies: ["React.js", "JavaScript", "MUI", "Python", "LLMs", "GenAI", "Git"],
   },
 ];
 

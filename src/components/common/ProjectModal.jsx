@@ -66,61 +66,73 @@ const ModalContent = ({
       <KeyFeatures features={project.features} />
       <Technologies technologies={project.technologies} />
 
-      <div className="mb-6">
-        <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-          More Screenshots
-        </h3>
-        {project.name === "DevTinder" ? (
-          <DevTinderGallery
-            project={project}
-            showAllDesktopImages={showAllDesktopImages}
-            showAllMobileImages={showAllMobileImages}
-            setShowAllDesktopImages={setShowAllDesktopImages}
-            setShowAllMobileImages={setShowAllMobileImages}
-          />
-        ) : (
-          <StandardGallery
-            project={project}
-            showAllImages={showAllImages}
-            setShowAllImages={setShowAllImages}
-          />
-        )}
-      </div>
+      {(project.images || project.desktopImages) && 
+        ((project.images?.length > (project.name === "Vaultix" ? 3 : 1)) || 
+         (project.desktopImages?.length > 1) || 
+         (project.name === "DevTinder" && project.mobileImages?.length > 0)) && (
+        <div className="mb-6">
+          <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+            More Screenshots
+          </h3>
+          {project.name === "DevTinder" ? (
+            <DevTinderGallery
+              project={project}
+              showAllDesktopImages={showAllDesktopImages}
+              showAllMobileImages={showAllMobileImages}
+              setShowAllDesktopImages={setShowAllDesktopImages}
+              setShowAllMobileImages={setShowAllMobileImages}
+            />
+          ) : (
+            <StandardGallery
+              project={project}
+              showAllImages={showAllImages}
+              setShowAllImages={setShowAllImages}
+            />
+          )}
+        </div>
+      )}
     </>
   );
 };
 
-const MainImage = ({ project }) => (
-  <div className="mb-6">
-    {project.name === "Vaultix" ? (
-      <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
-        {project.images.slice(0, 3).map((image, index) => (
-          <div key={index} className="relative">
+const MainImage = ({ project }) => {
+  if (!project.images && !project.desktopImages) return null;
+  return (
+    <div className="mb-6">
+      {project.name === "Vaultix" ? (
+        <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {project.images?.slice(0, 3).map((image, index) => (
+            <div key={index} className="relative">
+              <img
+                src={image}
+                alt={`${project.name} screenshot ${index + 1}`}
+                className="w-full h-auto object-contain rounded-lg shadow-lg bg-gray-800"
+              />
+            </div>
+          ))}
+        </div>
+      ) : project.name === "DevTinder" ? (
+        project.desktopImages && project.desktopImages.length > 0 && (
+          <div className="max-w-4xl mx-auto">
             <img
-              src={image}
-              alt={`${project.name} screenshot ${index + 1}`}
+              src={project.desktopImages[0]}
+              alt={`${project.name} main screenshot`}
               className="w-full h-auto object-contain rounded-lg shadow-lg bg-gray-800"
             />
           </div>
-        ))}
-      </div>
-    ) : project.name === "DevTinder" ? (
-      <div className="max-w-4xl mx-auto">
-        <img
-          src={project.desktopImages[0]}
-          alt={`${project.name} main screenshot`}
-          className="w-full h-auto object-contain rounded-lg shadow-lg bg-gray-800"
-        />
-      </div>
-    ) : (
-      <img
-        src={project.images[0]}
-        alt={project.name}
-        className="w-full object-contain rounded-lg shadow-lg bg-gray-800"
-      />
-    )}
-  </div>
-);
+        )
+      ) : (
+        project.images && project.images.length > 0 && (
+          <img
+            src={project.images[0]}
+            alt={project.name}
+            className="w-full object-contain rounded-lg shadow-lg bg-gray-800"
+          />
+        )
+      )}
+    </div>
+  );
+};
 
 const ProjectDescription = ({ project }) => (
   <div>

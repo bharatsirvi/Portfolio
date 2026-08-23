@@ -61,9 +61,6 @@ const ExperienceCard = ({ exp }) => (
           <div>
             <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
             <p className="text-purple-400 font-semibold text-lg">{exp.company}</p>
-            <span className="inline-block mt-1.5 text-xs font-medium px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full border border-purple-400/20">
-              {exp.type}
-            </span>
           </div>
         </div>
 
